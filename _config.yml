@@ -1,0 +1,25 @@
+title: Tim Thirion
+author:
+  name: Tim Thirion
+  email: timothy.a.thirion@gmail.com
+description: >-
+  I'm a Technical Leader at Kitware. I write about research, development, and
+  advanced software engineering.
+
+show_excerpts: true # set to true to show excerpts on the homepage
+
+minima:
+  skin: dark
+  date_format: "%b %-d, %Y"
+
+  social_links:
+    twitter: timthirion
+    github: timthirion
+
+# Build settings
+theme: minima
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
