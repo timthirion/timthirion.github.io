@@ -21,7 +21,7 @@
 title: Tim Thirion
 email: timothy.a.thirion@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  A lens on modern research & development
+  A lens on modern software R&D
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://timthirion.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: timthirion
