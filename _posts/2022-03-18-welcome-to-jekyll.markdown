@@ -22,6 +22,40 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
 
+Here's some rust code:
+
+{% highlight rust %}
+macro_rules! blow_up {
+  ($a:ident) => {
+    println!("hello {}!", stringify!($a));
+  };
+
+  ($a:ident $($rest:tt)+) => {
+      blow_up!($a);
+      blow_up!($($rest)+);
+      blow_up!($($rest)+);
+  }
+}
+
+macro_rules! make_slow {
+  () => {
+      blow_up!(
+          a0 b0 c0 d0 e0 f0 g0 h0 i0 j0
+      );
+  }
+}
+{% endhighlight %}
+
+{% highlight c++ %}
+std::vector<float> average(const std::vector<float> &scalars) {
+  float average = 0.0f;
+  for (int i = 0; i < scalars.size(); ++i) {
+    average += scalars[i];
+  }
+  return average / scalars.count();
+}
+{% endhighlight %}
+
 $$E=mc^2$$
 
 $$\int_{0}^{1}f(x)dx$$
