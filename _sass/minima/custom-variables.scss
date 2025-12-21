@@ -2,3 +2,10 @@
 $content-width: 1000px;  // Up from 800px default
 $on-palm: 600px;
 $on-laptop: 1000px;
+
+// Darker page background to match Catppuccin aesthetic
+$background-color: #24273a;  // Catppuccin base-ish color
+$text-color: #cad3f5;        // Catppuccin text
+$brand-color: #8aadf4;       // Catppuccin blue
+$grey-color: #6e738d;        // Catppuccin overlay
+$grey-color-light: #5b6078;  // Catppuccin surface
