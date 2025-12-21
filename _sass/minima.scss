@@ -46,11 +46,12 @@ $on-laptop:        800px !default;
 // Import partials.
 @import
   "minima/custom-variables",
+  "minima/catppuccin-themes",
   "minima/base",
   "minima/layout",
-  "minima/catppuccin-mocha-vars",
   "minima/catppuccin-base",
-  "minima/catppuccin-syntax",
+  "minima/catppuccin-syntax-mocha",
+  "minima/catppuccin-syntax-latte",
   "minima/copy-button",
   "minima/custom-overrides"
 ;

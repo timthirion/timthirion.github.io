@@ -1,0 +1,87 @@
+// Catppuccin theme variables using CSS custom properties
+
+// Light theme (Latte)
+html.theme-light {
+  --ctp-base: #dce0e8;         // Use crust for code blocks (darker than page)
+  --ctp-surface0: #ccd0da;
+  --ctp-surface1: #bcc0cc;
+  --ctp-text: #4c4f69;
+  --ctp-subtext1: #5c5f77;
+  --ctp-overlay0: #9ca0b0;
+  
+  // Page colors
+  --bg-color: #eff1f5;         // Page stays lighter
+  --text-color: #4c4f69;
+  --link-color: #1e66f5;
+  --border-color: #ccd0da;
+}
+
+// Dark theme (Mocha) - using surface0 for lighter background
+html.theme-dark {
+  --ctp-base: #313244;
+  --ctp-surface0: #45475a;
+  --ctp-surface1: #585b70;
+  --ctp-text: #cdd6f4;
+  --ctp-subtext1: #bac2de;
+  --ctp-overlay0: #6c7086;
+  
+  // Page colors
+  --bg-color: #1e1e2e;
+  --text-color: #cdd6f4;
+  --link-color: #89b4fa;
+  --border-color: #45475a;
+}
+
+// Apply theme colors to page - be very aggressive
+html {
+  background-color: var(--bg-color) !important;
+}
+
+body {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+}
+
+// All page content
+.page-content {
+  background-color: var(--bg-color) !important;
+}
+
+// Main wrapper
+main {
+  background-color: var(--bg-color) !important;
+}
+
+// Links
+a {
+  color: var(--link-color);
+  
+  &:visited {
+    color: var(--link-color);
+  }
+}
+
+// Header background
+.site-header {
+  background-color: var(--bg-color) !important;
+  border-bottom: 1px solid var(--border-color);
+}
+
+// Footer background  
+.site-footer {
+  background-color: var(--bg-color) !important;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-color) !important;
+}
+
+// Post content
+.post-content,
+.post-header,
+.post-meta {
+  color: var(--text-color) !important;
+}
+
+// All headings
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-color) !important;
+}

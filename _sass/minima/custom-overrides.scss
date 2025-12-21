@@ -1,16 +1,30 @@
 // Custom style overrides
 
-// 1. Site title - use hover color always
+// 1. Header alignment - align site title with nav
+.site-header .wrapper {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+// Site title styling
 .site-title {
-  color: $brand-color !important;
-
+  color: var(--link-color) !important;
+  
   &:visited {
-    color: $brand-color !important;
+    color: var(--link-color) !important;
   }
-
+  
   &:hover {
     text-decoration: underline;
   }
+}
+
+// Make sure nav stays on the right and doesnt add extra spacing
+.site-nav {
+  float: none !important;
+  line-height: normal !important;
+  margin-left: auto !important;  // Push to the right
 }
 
 // 2. All wrappers - match content width
@@ -27,19 +41,88 @@
     display: flex;
     justify-content: space-between;
   }
-
+  
   .footer-col-1 {
     text-align: left;
     flex: 1;
   }
-
+  
   .footer-col-2 {
     text-align: center;
     flex: 1;
   }
-
+  
   .footer-col-3 {
     text-align: right;
     flex: 1;
+  }
+}
+
+// 4. Nav trigger - align items horizontally
+.site-nav .trigger {
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+// 5. Theme toggle - single capsule with divider
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  background-color: var(--ctp-surface0);
+  border: 2px solid var(--border-color);
+  border-radius: 20px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.theme-btn {
+  padding: 8px 12px;
+  background-color: transparent;
+  color: var(--ctp-text);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  
+  svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+  }
+  
+  &:hover {
+    background-color: var(--ctp-surface1);
+  }
+  
+  &.active {
+    background-color: var(--link-color);
+    color: var(--bg-color);
+  }
+}
+
+// Divider between buttons
+.theme-btn-light {
+  border-right: 1px solid var(--border-color);
+}
+
+.page-link {
+  display: inline-block;
+  line-height: normal !important;
+}
+
+// Override minima defaults for better alignment
+@media screen and (min-width: $on-laptop) {
+  .site-nav {
+    position: static !important;
+    
+    .page-link {
+      color: var(--text-color);
+    }
   }
 }

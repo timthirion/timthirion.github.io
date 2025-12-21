@@ -1,36 +1,36 @@
-// Catppuccin base styles (uses variables from imported flavor)
+// Catppuccin base styles using CSS custom properties
 
 // Code blocks
 pre,
 div.highlighter-rouge,
 figure.highlight {
-  background-color: $ctp-base !important;
-  font-family: 'Space Mono', monospace !important;
-
+  background-color: var(--ctp-base) !important;
+  font-family: "Space Mono", monospace !important;
+  
   pre {
-    background-color: $ctp-base !important;
-    color: $ctp-text !important;
-    font-family: 'Space Mono', monospace !important;
+    background-color: var(--ctp-base) !important;
+    color: var(--ctp-text) !important;
+    font-family: "Space Mono", monospace !important;
   }
-
+  
   code {
-    background-color: $ctp-base !important;
-    color: $ctp-text !important;
-    font-family: 'Space Mono', monospace !important;
+    background-color: var(--ctp-base) !important;
+    color: var(--ctp-text) !important;
+    font-family: "Space Mono", monospace !important;
   }
 }
 
 // Inline code
 code {
-  background-color: $ctp-surface0 !important;
-  color: $ctp-text !important;
+  background-color: var(--ctp-surface0) !important;
+  color: var(--ctp-text) !important;
   padding: 2px 4px;
   border-radius: 3px;
-  font-family: 'Space Mono', monospace !important;
+  font-family: "Space Mono", monospace !important;
 }
 
 // Make sure pre > code doesn't get double backgrounds
 pre code {
-  background-color: transparent !important;
-  padding: 0;
+background-color: transparent !important;
+padding: 0;
 }
