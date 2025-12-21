@@ -45,6 +45,7 @@ $on-laptop:        800px !default;
 
 // Import partials.
 @import
+  "minima/custom-variables",
   "minima/base",
   "minima/layout",
   "minima/catppuccin-mocha-vars",
