@@ -1,0 +1,31 @@
+// Copy button for code blocks - theme independent
+
+.code-block-wrapper {
+  position: relative;
+  margin-bottom: 1em;
+}
+
+.copy-code-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 12px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s, background-color 0.2s;
+
+  &:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
