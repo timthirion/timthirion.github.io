@@ -30,6 +30,8 @@ github_username: timthirion
 permalink: :year-:month-:day-:title:output_ext
 
 # Build settings
+markdown: kramdown
+highlighter: rouge
 theme: minima
 plugins:
   - jekyll-feed

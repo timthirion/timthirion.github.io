@@ -1,4 +1,11 @@
 <head>
+  <script>
+    // Set theme class immediately to prevent FOUC
+    (function() {
+      const theme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.classList.add('theme-' + theme);
+    })();
+  </script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
