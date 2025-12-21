@@ -1,0 +1,45 @@
+// Custom style overrides
+
+// 1. Site title - use hover color always
+.site-title {
+  color: $brand-color !important;
+
+  &:visited {
+    color: $brand-color !important;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// 2. All wrappers - match content width
+.wrapper,
+.site-footer .wrapper,
+.footer-col-wrapper {
+  max-width: $content-width !important;
+  width: 100% !important;
+}
+
+// 3. Three-column footer layout
+@media screen and (min-width: $on-laptop) {
+  .footer-col-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .footer-col-1 {
+    text-align: left;
+    flex: 1;
+  }
+
+  .footer-col-2 {
+    text-align: center;
+    flex: 1;
+  }
+
+  .footer-col-3 {
+    text-align: right;
+    flex: 1;
+  }
+}
