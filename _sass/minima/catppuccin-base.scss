@@ -40,6 +40,13 @@ figure.highlight pre {
   }
 }
 
+// Remove all bold from syntax highlighting
+.highlight span,
+figure.highlight span,
+pre code span {
+  font-weight: normal !important;
+}
+
 // Inline code
 code {
   background-color: var(--ctp-surface0) !important;
