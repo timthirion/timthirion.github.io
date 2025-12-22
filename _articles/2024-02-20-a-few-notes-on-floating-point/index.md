@@ -3,6 +3,7 @@ layout: post
 title:  "A Few Notes on Floating Point"
 date:   2024-02-20 12:01:00 -0400
 usemathjax: true
+slug: a-few-notes-on-floating-point
 ---
 
 This post is a collection of tips for corralling floating point calculations,

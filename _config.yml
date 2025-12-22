@@ -27,7 +27,18 @@ url: "https://timthirion.github.io" # the base hostname & protocol for your site
 twitter_username: timthirion
 github_username: timthirion
 
-permalink: :year-:month-:day-:title:output_ext
+collections:
+  articles:
+    output: true
+    permalink: /:year-:month-:day-:slug/
+
+# Set default layout for articles
+defaults:
+  - scope:
+      path: ""
+      type: "articles"
+    values:
+      layout: "post"
 
 # Build settings
 markdown: kramdown
