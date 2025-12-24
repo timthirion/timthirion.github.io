@@ -1,5 +1,5 @@
 # Article-specific diagrams
-DIAGRAMS = envelope-10-lines
+DIAGRAMS = envelope-10-lines envelope-comparison
 
 # Generate targets
 LATTE_PDFS = $(addsuffix -latte.pdf,$(DIAGRAMS))

@@ -19,3 +19,11 @@ draw a simple set of lines that sketched out a cool curve. One way to do this is
 
 But what is this curve? The first few times I drew it I couldn't even guess. Some time later, I thought it either looked
 like a horizontally-stretched parabola or a quarter circular arc with the circle center in the top right.
+
+<img id="envelope-comparison"
+     src="{{ '/assets/diagrams/2026-01-01-the-geometry-of-envelopes/envelope-comparison-latte.svg' | relative_url }}"
+     data-light-src="{{ '/assets/diagrams/2026-01-01-the-geometry-of-envelopes/envelope-comparison-latte.svg' | relative_url }}"
+     data-dark-src="{{ '/assets/diagrams/2026-01-01-the-geometry-of-envelopes/envelope-comparison-mocha.svg' | relative_url }}"
+     alt="Comparison of envelope curve with parabola and circular arc"
+     class="theme-aware-diagram"
+     style="max-width: 100%; height: auto;">
