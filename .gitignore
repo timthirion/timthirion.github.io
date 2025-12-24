@@ -3,3 +3,8 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.pdf

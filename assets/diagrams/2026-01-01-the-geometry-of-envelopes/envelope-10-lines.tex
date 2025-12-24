@@ -1,0 +1,42 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{pgfplots}
+\usepackage{etoolbox}
+\usetikzlibrary{backgrounds}
+\pgfplotsset{compat=1.18}
+
+% Load color scheme based on \theme variable
+\ifdefstring{\theme}{latte}{
+  \input{../../../_tikz/colors-latte}
+}{
+  \input{../../../_tikz/colors-mocha}
+}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    width=10cm, 
+    height=10cm,
+    xmin=0, xmax=10,
+    ymin=0, ymax=10,
+    axis lines=center,
+    axis line style={textColor, thick},
+    tick style={textColor},
+    tick label style={textColor},
+    grid=major,
+    grid style={gridColor, thin},
+    xlabel={$x$},
+    ylabel={$y$},
+    xlabel style={textColor},
+    ylabel style={textColor},
+  ]
+  
+  % Draw the 10 line segments
+  \foreach \a in {1,2,...,10} {
+    \addplot[secondaryColor, thick, opacity=0.6] coordinates {
+      (0, \a) (10-\a, 0)
+    };
+  }
+  
+  \end{axis}
+\end{tikzpicture}
+\end{document}
