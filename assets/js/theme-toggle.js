@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function() {
   // Check for saved theme preference or default to dark
   const currentTheme = localStorage.getItem("theme") || "dark";
 
-  // Update button states
-  updateButtonStates(currentTheme);
+  // Set initial theme
+  setTheme(currentTheme);
 
   // Add click handlers
   document.getElementById("theme-light").addEventListener("click", function() {
@@ -21,10 +21,20 @@ document.addEventListener("DOMContentLoaded", function() {
     html.classList.add("theme-" + theme);
     localStorage.setItem("theme", theme);
     updateButtonStates(theme);
+    updateDiagrams(theme);  // Add this line!
   }
 
   function updateButtonStates(theme) {
     document.getElementById("theme-light").classList.toggle("active", theme === "light");
     document.getElementById("theme-dark").classList.toggle("active", theme === "dark");
+  }
+
+  function updateDiagrams(theme) {
+    document.querySelectorAll('.theme-aware-diagram').forEach(img => {
+      const src = theme === 'dark' ? img.dataset.darkSrc : img.dataset.lightSrc;
+      if (src) {
+        img.src = src;
+      }
+    });
   }
 });
