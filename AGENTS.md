@@ -55,6 +55,17 @@ Layouts live **only** in `_layouts/`. Do not add `default.html` / `home.html` / 
 4. Code blocks: standard fenced markdown (`` ```rust ``) — Rouge handles highlighting. The `{% highlight %}` Liquid tag also works.
 5. Math: KaTeX is loaded site-wide via CDN in `_includes/head.html` with auto-render on `document.body`. Use `$$...$$` for both inline and display math.
 
+## Interactive demos
+
+Live in-browser demos pull from the project repos, not from one-off code in the post:
+
+- Rendering / global illumination / graphics demos → **quasi** — https://github.com/timthirion/quasi (Rust + wgpu)
+- Robot motion planning demos → **motum** — https://github.com/timthirion/motum
+
+All three repos (this one, `quasi`, `motum`) are cloned as siblings under the same parent directory locally, so `../quasi` and `../motum` resolve from this repo's root.
+
+Each post pins a specific commit of the source repo, builds a small wasm crate exposing only what that post needs, and vendors the resulting `.wasm` + JS shim under `assets/demos/<post-slug>/`. Frozen per-post bundles keep older posts working as the source repos evolve.
+
 ## Theming
 
 - Light/dark toggle in the header; choice persists in `localStorage` under key `theme`. Default is dark. Theme class is set inline in `<head>` to avoid FOUC.
