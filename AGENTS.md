@@ -53,7 +53,7 @@ Layouts live **only** in `_layouts/`. Do not add `default.html` / `home.html` / 
    (`layout: post` is the default for the collection, so technically optional.)
 3. Permalink format is `/:year-:month-:day-:slug/` — set by `collections.articles.permalink` in `_config.yml`.
 4. Code blocks: standard fenced markdown (`` ```rust ``) — Rouge handles highlighting. The `{% highlight %}` Liquid tag also works.
-5. Math: KaTeX is loaded site-wide via CDN in `_includes/head.html` with auto-render on `document.body`. Use `$$...$$` for both inline and display math. (Some older posts have `usemathjax: true` in frontmatter; this is a no-op now and can be ignored.)
+5. Math: KaTeX is loaded site-wide via CDN in `_includes/head.html` with auto-render on `document.body`. Use `$$...$$` for both inline and display math.
 
 ## Theming
 
