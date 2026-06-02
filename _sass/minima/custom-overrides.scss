@@ -34,16 +34,28 @@
   align-items: center !important;
 }
 
-// Site title styling
+// Links: theme link color across all states; underline only on hover
+a {
+  color: var(--link-color);
+  text-decoration: none;
+
+  &:visited {
+    color: var(--link-color);
+  }
+
+  &:hover {
+    color: var(--link-color);
+    text-decoration: underline;
+  }
+}
+
+// Site title needs an !important override because minima's .site-title rule
+// (a class selector) beats the bare `a` selector above on specificity.
 .site-title {
   color: var(--link-color) !important;
 
   &:visited {
     color: var(--link-color) !important;
-  }
-
-  &:hover {
-    text-decoration: underline;
   }
 }
 

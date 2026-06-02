@@ -11,7 +11,7 @@ html.theme-light {
   
   // Page colors
   --bg-color: #eff1f5;         // Page stays lighter
-  --text-color: #4c4f69;
+  --text-color: #111;
   --link-color: #1e66f5;
   --border-color: #ccd0da;
 }
@@ -50,15 +50,6 @@ body {
 // Main wrapper
 main {
   background-color: var(--bg-color) !important;
-}
-
-// Links
-a {
-  color: var(--link-color);
-  
-  &:visited {
-    color: var(--link-color);
-  }
 }
 
 // Header background
