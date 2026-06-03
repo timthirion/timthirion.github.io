@@ -14,6 +14,9 @@ Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit number
 
 Jekyll also offers powerful support for code snippets:
 
+<details markdown="1" class="collapsible-code" open>
+<summary>Source: A simple Ruby method</summary>
+
 {% highlight ruby %}
 def print_hi(name)
   puts "Hi, #{name}"
@@ -22,7 +25,12 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
 
+</details>
+
 Here's some rust code:
+
+<details markdown="1" class="collapsible-code" open>
+<summary>Source: A recursive Rust macro</summary>
 
 {% highlight rust %}
 macro_rules! blow_up {
@@ -46,6 +54,11 @@ macro_rules! make_slow {
 }
 {% endhighlight %}
 
+</details>
+
+<details markdown="1" class="collapsible-code" open>
+<summary>Source: A C++ average function</summary>
+
 {% highlight c++ %}
 std::vector<float> average(const std::vector<float> &scalars) {
   float average = 0.0f;
@@ -55,6 +68,8 @@ std::vector<float> average(const std::vector<float> &scalars) {
   return average / scalars.count();
 }
 {% endhighlight %}
+
+</details>
 
 $$E=mc^2$$
 

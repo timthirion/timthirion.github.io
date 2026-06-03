@@ -47,6 +47,9 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
 doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
 veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 
+<details markdown="1" class="collapsible-code">
+<summary>Source: Cornell Box construction</summary>
+
 ```rust
 // Rust
 pub fn cornell_box() -> Scene {
@@ -113,12 +116,17 @@ pub fn cornell_box() -> Scene {
 ```
 {:data-src="https://github.com/timthirion/quasi/blob/13e9da2/src/scene.rs#L134-L194"}
 
+</details>
+
 ## Path Tracing in WGSL
 
 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
 praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
 excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
 officia deserunt mollitia animi, id est laborum et dolorum fuga.
+
+<details markdown="1" class="collapsible-code" open>
+<summary>Source: Cargo.toml dependencies</summary>
 
 ```toml
 # Cargo.toml
@@ -156,6 +164,11 @@ web-sys = { version = "0.3", features = [
 ] }
 ```
 {:data-src="https://github.com/timthirion/quasi/blob/13e9da2/Cargo.toml#L10-L44"}
+
+</details>
+
+<details markdown="1" class="collapsible-code" open>
+<summary>Source: Ray-quad intersection</summary>
 
 ```wgsl
 // WGSL
@@ -200,6 +213,11 @@ fn intersect_quad(ray: Ray, q: Quad, mat_idx: u32, t_min: f32, t_max: f32) -> Hi
 }
 ```
 {:data-src="https://github.com/timthirion/quasi/blob/13e9da2/src/shaders/pathtrace.wgsl#L92-L130"}
+
+</details>
+
+<details markdown="1" class="collapsible-code" open>
+<summary>Source: Path-trace integrator</summary>
 
 ```wgsl
 // WGSL
@@ -272,6 +290,11 @@ fn path_trace(ray_in: Ray, rng: ptr<function, u32>) -> vec3<f32> {
 ```
 {:data-src="https://github.com/timthirion/quasi/blob/13e9da2/src/shaders/pathtrace.wgsl#L281-L346"}
 
+</details>
+
+<details markdown="1" class="collapsible-code" open>
+<summary>Source: Progressive accumulation</summary>
+
 ```wgsl
 // WGSL
 @fragment
@@ -285,12 +308,17 @@ fn fs_main(in: VsOut) -> @location(0) vec4<f32> {
 ```
 {:data-src="https://github.com/timthirion/quasi/blob/13e9da2/src/shaders/accumulate.wgsl#L33-L39"}
 
+</details>
+
 ## Next-Event Estimation
 
 Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed
 quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
 Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
 adipisci velit.
+
+<details markdown="1" class="collapsible-code" open>
+<summary>Source: Sampling the area light</summary>
 
 ```wgsl
 // WGSL
@@ -330,6 +358,8 @@ fn sample_light(p: vec3<f32>, rng: ptr<function, u32>) -> LightSample {
 }
 ```
 {:data-src="https://github.com/timthirion/quasi/blob/13e9da2/src/shaders/pathtrace.wgsl#L178-L211"}
+
+</details>
 
 ## What's Next
 

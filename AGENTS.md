@@ -2,6 +2,11 @@
 
 Guidance for AI coding agents (Claude Code, etc.) working in this repo.
 
+For typographic and copy conventions (casing, captions, label phrasing),
+see [`STYLE.md`](STYLE.md). This file (`AGENTS.md`) covers structural
+and authoring conventions; `STYLE.md` covers how the prose and labels
+are worded.
+
 ## What this is
 
 A personal blog by Tim Thirion, built with Jekyll 4.3 and a heavily customized Minima theme. Deployed via GitHub Pages from `main`.
@@ -63,6 +68,7 @@ Layouts live **only** in `_layouts/`. Do not add `default.html` / `home.html` / 
    ```
    Captions are descriptive (what the figure is), not instructional (how to interact) — interactive affordances belong on the figure itself, not in the caption.
 7. Code snippets from sibling repos (`quasi`, `motum`): copy **verbatim** — same line breaks, same indentation, same whitespace as the source file at the pinned commit. Don't compress multi-line calls onto one line, don't merge `if (cond) {\n    return;\n}` into single-line form, don't re-align. The `data-src` GitHub link lets readers compare against the file directly, so reformatted snippets read as "you don't trust the source." The only intentional divergence from source is a single top-line language label comment (`// Rust`, `// WGSL`, `# Cargo.toml`). Each snippet also carries a kramdown IAL with the pinned-commit URL: `{:data-src="https://github.com/timthirion/quasi/blob/COMMIT/path/to/file#Lstart-Lend"}`.
+8. Collapsible code: for snippets that support the post but aren't worth reading inline (scene construction, boilerplate, long helpers), wrap the fenced block in `<details markdown="1" class="collapsible-code">` with a one-line `<summary>` label describing the snippet by intent ("Cornell Box scene construction", not "the cornell_box function"). Defaults to collapsed; reader expands what they want to dig into. Use selectively — collapsing every snippet on the page reads as friction. The `markdown="1"` attribute is load-bearing: without it kramdown won't process the fenced block inside the `<details>`.
 
 ## Interactive demos
 

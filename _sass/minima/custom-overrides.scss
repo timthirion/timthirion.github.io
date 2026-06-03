@@ -13,6 +13,65 @@ code {
   padding-top: 0;
 }
 
+// Collapsible code blocks via native <details>/<summary>. Authors wrap a
+// fenced code block in `<details markdown="1" class="collapsible-code">`
+// and put a one-line label in <summary>. Used selectively for snippets
+// that support the post but aren't worth reading inline.
+details.collapsible-code {
+  margin-bottom: 1em;
+  border-radius: 4px;
+  background-color: var(--ctp-base);
+  overflow: hidden;
+
+  > summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    cursor: pointer;
+    user-select: none;
+    color: var(--ctp-subtext1);
+    font-size: 14px;
+    list-style: none;
+    transition: background-color 0.15s;
+
+    // Suppress the browser's default disclosure triangle.
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    // CSS-drawn chevron pointing right; rotates 90° when details is open.
+    &::before {
+      content: "";
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 0 5px 7px;
+      border-color: transparent transparent transparent var(--ctp-subtext1);
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      background-color: var(--ctp-surface0);
+    }
+  }
+
+  &[open] > summary {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  &[open] > summary::before {
+    transform: rotate(90deg);
+  }
+
+  // Drop the code-block-wrapper's normal 1em margin-bottom so the inner
+  // code panel sits flush with the bottom of the <details> container.
+  .code-block-wrapper {
+    margin-bottom: 0;
+  }
+}
+
 // Figures (images and interactive canvases) get centered with captions below.
 // Figures inside a post are auto-numbered ("Fig 1.", "Fig 2.", …) via a CSS
 // counter scoped to .post-content.
