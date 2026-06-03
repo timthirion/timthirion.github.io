@@ -54,6 +54,15 @@ Layouts live **only** in `_layouts/`. Do not add `default.html` / `home.html` / 
 3. Permalink format is `/:year-:month-:day-:slug/` — set by `collections.articles.permalink` in `_config.yml`.
 4. Code blocks: standard fenced markdown (`` ```rust ``) — Rouge handles highlighting. The `{% highlight %}` Liquid tag also works.
 5. Math: KaTeX is loaded site-wide via CDN in `_includes/head.html` with auto-render on `document.body`. Use `$$...$$` for both inline and display math.
+6. Figures: every image or interactive canvas gets wrapped in `<figure>` with a `<figcaption>` below it. Global styling in `_sass/minima/custom-overrides.scss` handles centering, vertical spacing, the caption's italic mauve treatment, and auto-numbering (a CSS counter scoped to `.post-content` prepends "Fig N." — do **not** write the prefix manually). Author just writes:
+   ```html
+   <figure>
+     <img src="..." alt="..." />
+     <figcaption>What this is.</figcaption>
+   </figure>
+   ```
+   Captions are descriptive (what the figure is), not instructional (how to interact) — interactive affordances belong on the figure itself, not in the caption.
+7. Code snippets from sibling repos (`quasi`, `motum`): copy **verbatim** — same line breaks, same indentation, same whitespace as the source file at the pinned commit. Don't compress multi-line calls onto one line, don't merge `if (cond) {\n    return;\n}` into single-line form, don't re-align. The `data-src` GitHub link lets readers compare against the file directly, so reformatted snippets read as "you don't trust the source." The only intentional divergence from source is a single top-line language label comment (`// Rust`, `// WGSL`, `# Cargo.toml`). Each snippet also carries a kramdown IAL with the pinned-commit URL: `{:data-src="https://github.com/timthirion/quasi/blob/COMMIT/path/to/file#Lstart-Lend"}`.
 
 ## Interactive demos
 

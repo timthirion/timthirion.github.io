@@ -1,15 +1,16 @@
-// Copy button for code blocks - theme independent
+// Buttons that decorate code blocks (copy + GitHub source link).
+// Theme-independent: dark translucent chip with white iconography, sits in
+// the top-right corner. GH button (when present) sits left of the copy one.
 
 .code-block-wrapper {
   position: relative;
   margin-bottom: 1em;
 }
 
-.copy-code-button {
+%code-block-button {
   position: absolute;
   top: 8px;
-  right: 8px;
-  padding: 8px;  // Equal padding all around
+  padding: 8px;
   background-color: rgba(0, 0, 0, 0.3);
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -17,20 +18,44 @@
   cursor: pointer;
   opacity: 0.7;
   transition: opacity 0.2s, background-color 0.2s;
-  display: flex;  // Use flexbox
-  align-items: center;  // Center vertically
-  justify-content: center;  // Center horizontally
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
   svg {
-    display: block;  // Remove any inline spacing
+    display: block;
   }
-  
+
+  // Pin color across every link state — the site-wide `a:visited` rule
+  // (specificity 0,1,1) would otherwise tint the GitHub button blue after
+  // the first click. Buttons (the copy variant) ignore these, so it's safe
+  // to apply at the shared placeholder.
+  &:visited,
+  &:focus,
+  &:active {
+    color: #fff;
+    text-decoration: none;
+  }
+
   &:hover {
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-decoration: none;
   }
-  
+
   &:active {
     transform: scale(0.95);
   }
+}
+
+.copy-code-button {
+  @extend %code-block-button;
+  right: 8px;
+}
+
+.github-link-button {
+  @extend %code-block-button;
+  right: 48px;
 }

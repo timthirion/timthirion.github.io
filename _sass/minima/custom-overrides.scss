@@ -1,5 +1,39 @@
 // Custom style overrides
 
+// Code blocks: drop one tick from minima's 15px default so longer lines
+// have a fighting chance at fitting before pre-wrap kicks in.
+pre, code {
+  font-size: 14px;
+}
+
+// Figures (images and interactive canvases) get centered with captions below.
+// Figures inside a post are auto-numbered ("Fig 1.", "Fig 2.", …) via a CSS
+// counter scoped to .post-content.
+.post-content {
+  counter-reset: figure;
+}
+
+figure {
+  margin: 1.5em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  counter-increment: figure;
+}
+
+figure > figcaption {
+  margin-top: 0.5em;
+  font-size: 0.875em;
+  color: var(--ctp-subtext1);
+  font-style: italic;
+  text-align: center;
+}
+
+figure > figcaption::before {
+  content: "Fig " counter(figure) ". ";
+  font-style: normal;
+}
+
 // Force everything to stay within viewport on mobile
 @media screen and (max-width: $on-palm) {
   html, body {
