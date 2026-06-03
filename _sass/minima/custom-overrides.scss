@@ -6,6 +6,13 @@ pre, code {
   font-size: 14px;
 }
 
+// Inline code chips: zero out the top padding so the chip sits flush with
+// the line's cap-height instead of riding above it. Horizontal + bottom
+// padding stay at 4px / 2px from catppuccin-base.scss.
+code {
+  padding-top: 0;
+}
+
 // Figures (images and interactive canvases) get centered with captions below.
 // Figures inside a post are auto-numbered ("Fig 1.", "Fig 2.", …) via a CSS
 // counter scoped to .post-content.
