@@ -28,6 +28,7 @@ details.collapsible-code {
     align-items: center;
     gap: 10px;
     padding: 10px 14px;
+    padding-right: 8px;  // Tighter right edge so the buttons sit closer in.
     cursor: pointer;
     user-select: none;
     color: var(--ctp-subtext1);
@@ -52,7 +53,11 @@ details.collapsible-code {
       flex-shrink: 0;
     }
 
-    &:hover {
+    // Highlight the whole summary bar on hover — unless the user is
+    // pointing at one of the inline buttons, in which case the button
+    // gets the highlight on its own and the bar stays neutral so the
+    // contrast reads cleanly.
+    &:hover:not(:has(.code-block-buttons :hover)) {
       background-color: var(--ctp-surface0);
     }
   }
@@ -69,6 +74,44 @@ details.collapsible-code {
   // code panel sits flush with the bottom of the <details> container.
   .code-block-wrapper {
     margin-bottom: 0;
+  }
+
+  // copy-code.js moves the copy + GitHub buttons into the <summary> when
+  // the block is collapsible. Right-align them and swap their floating
+  // chip style for quiet icon buttons that fit the summary bar.
+  > summary > .code-block-buttons {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  > summary .copy-code-button,
+  > summary .github-link-button {
+    position: static;
+    // Explicit bg (matches the details panel) so the summary's hover
+    // tint doesn't bleed through transparent buttons.
+    background-color: var(--ctp-base);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--ctp-subtext1);
+    opacity: 1;
+    padding: 8px;
+
+    &:visited {
+      color: var(--ctp-subtext1);
+    }
+
+    &:hover,
+    &:focus {
+      background-color: var(--ctp-surface0);
+      color: var(--ctp-text);
+      text-decoration: none;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
   }
 }
 

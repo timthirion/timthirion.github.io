@@ -23,7 +23,10 @@ document.addEventListener("DOMContentLoaded", function() {
     copyButton.setAttribute("aria-label", "Copy code");
     copyButton.innerHTML = copyIcon;
 
-    copyButton.addEventListener("click", function() {
+    copyButton.addEventListener("click", function(e) {
+      // Inside a collapsible <details>, the button lives in the <summary>;
+      // stop the click from bubbling up and toggling the details.
+      e.stopPropagation();
       const code = codeBlock.querySelector("code") || codeBlock;
       navigator.clipboard.writeText(code.textContent).then(function() {
         copyButton.innerHTML = checkIcon;
@@ -38,18 +41,37 @@ document.addEventListener("DOMContentLoaded", function() {
     codeBlock.parentNode.insertBefore(wrapper, codeBlock);
     wrapper.appendChild(codeBlock);
 
+    let ghLink = null;
     const sourceUrl = codeBlock.closest("[data-src]")?.dataset.src;
     if (sourceUrl) {
-      const ghLink = document.createElement("a");
+      ghLink = document.createElement("a");
       ghLink.className = "github-link-button";
       ghLink.setAttribute("aria-label", "View source on GitHub");
       ghLink.href = sourceUrl;
       ghLink.target = "_blank";
       ghLink.rel = "noopener noreferrer";
       ghLink.innerHTML = ghIcon;
-      wrapper.appendChild(ghLink);
+      ghLink.addEventListener("click", function(e) {
+        // Don't let the <a> click bubble up and toggle the collapsible.
+        e.stopPropagation();
+      });
     }
 
-    wrapper.appendChild(copyButton);
+    // If the code block is inside a collapsible <details>, route the buttons
+    // into the <summary> bar (right-aligned). Otherwise, float them over the
+    // code panel as before.
+    const details = codeBlock.closest("details.collapsible-code");
+    const summary = details && details.querySelector(":scope > summary");
+
+    if (summary) {
+      const buttonGroup = document.createElement("span");
+      buttonGroup.className = "code-block-buttons";
+      if (ghLink) buttonGroup.appendChild(ghLink);
+      buttonGroup.appendChild(copyButton);
+      summary.appendChild(buttonGroup);
+    } else {
+      if (ghLink) wrapper.appendChild(ghLink);
+      wrapper.appendChild(copyButton);
+    }
   });
 });
