@@ -27,6 +27,12 @@ url: "https://timthirion.github.io" # the base hostname & protocol for your site
 twitter_username: timthirion
 github_username: timthirion
 
+# Pages to surface in the site header nav. Anything not listed (e.g.
+# statement-on-ai.markdown) still builds at its URL but stays out of the
+# top-level nav.
+header_pages:
+  - about.markdown
+
 collections:
   articles:
     output: true

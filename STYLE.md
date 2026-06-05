@@ -52,3 +52,9 @@ Each summary is prefixed with **"Source: "** followed by the
 sentence-case description — e.g. *"Source: Cornell Box construction"*,
 *"Source: Path-trace integrator"*. The "Source:" framing leans toward
 "the actual code that does this" over "an illustrative example."
+
+## Statement on AI
+
+Every blog post carries a non-italicized link in the post header reading
+"Read my statement on AI" → `/on-ai/`. The link uses the standard body
+link color; size matches the `.post-meta` date line above it.

@@ -1,5 +1,11 @@
 // Custom style overrides
 
+// "Read my statement on AI" link in the post header — same size as the
+// .post-meta date line above it.
+.post-ai-statement {
+  font-size: 14px;
+}
+
 // Code blocks: drop one tick from minima's 15px default so longer lines
 // have a fighting chance at fitting before pre-wrap kicks in.
 pre, code {
